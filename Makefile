@@ -6,7 +6,7 @@
 #    By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 08:05:42 by rofontai          #+#    #+#              #
-#    Updated: 2023/02/13 11:26:23 by rofontai         ###   ########.fr        #
+#    Updated: 2023/02/14 15:23:31 by rofontai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,16 +39,13 @@ Z = $(shell tput -Txterm setaf 5)
 all: ${NAME}
 
 ${NAME}: ${DIR_LIBFT}/${LIBFT} $(OBJ) $(SRC)
-	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(DIR_LIBFT)/$(LIBFT)
 	@echo $GPUSH_SWAP DONE$W
+	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(DIR_LIBFT)/$(LIBFT)
 
 
 ${DIR_LIBFT}/${LIBFT}:
-	@make -C ${DIR_LIBFT}
 	@echo $CLIBFT DONE$W
-
-run: all
-	@./push_swap
+	@make -C ${DIR_LIBFT}
 
 clean:
 	@echo $RCLEAN	DONE$W

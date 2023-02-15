@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_free_tab.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 11:26:43 by rofontai          #+#    #+#             */
-/*   Updated: 2023/02/14 15:21:51 by rofontai         ###   ########.fr       */
+/*   Created: 2023/02/14 08:44:59 by rofontai          #+#    #+#             */
+/*   Updated: 2023/02/14 15:20:40 by rofontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main (int argc, char **argv)
+char	**ft_free_tab(char **tab)
 {
-	int i;
-	char **tab;
+	size_t	i;
+
 	i = 0;
-	if (argc < 2)
-		ft_putendl_fd("Error: pas d'argument", STDERR_FILENO);
-	if (argc == 2)
+	while (tab[i])
 	{
-		tab = ft_split(argv[1], 32);
-		while (tab[i])
-			printf("%i\n", ft_atol(tab[i++]));
-		ft_free_tab(tab);
+		free(tab[i]);
+		i++;
 	}
-	if (argc > 2)
-	{
-		i = 1;
-		while (argv[i])
-			printf("%i\n", ft_atol(argv[i++]));
-	}
-	printf("Ok tout fonctionne\n");
+	free(tab);
 	return (0);
 }

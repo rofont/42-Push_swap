@@ -6,70 +6,43 @@
 /*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 07:46:05 by rofontai          #+#    #+#             */
-/*   Updated: 2023/02/13 15:48:42 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/02/15 10:03:04 by rofontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	**free_tab(char **tab)
+void	ft_errror(void)
 {
-	size_t	i;
-
-	i = 0;
-	while (tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
-	return (0);
+	ft_putendl_fd("Error", STDERR_FILENO);
+	exit(0);
 }
 
-int	ft_check_number(char *str)
+int	ft_atol(char *str)
 {
-	int	i;
-
-	i = 0;
-	if ((str[i] == 45 || str[i] == 43) && str[i + 1] != '\0')
-		i++;
-	while (ft_isdigit(str[i]) == 1 && str[i])
-		i++;
-	if (ft_isdigit(str[i]) == 0 && str[i])
-		return (0);
-	return (1);
-}
-
-int ft_check_error(int nb, char **str)
-{
+	long	nb;
+	int		neg;
 	int		i;
-	char	**tab;
 
-	i = 1;
-	if (nb > 2)
+	if (!str)
+		ft_errror();
+	neg = 1;
+	i = 0;
+	nb = 0;
+	while (str[i] && ((str[i] >= 9 && str[i] <= 13) || str[i] == 32))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		while (str[i])
-		{
-			if (ft_check_number(str[i]) == 0)
-			{
-				free_tab(str);
-				return (printf("error"));
-			}
-			i++;
-		}
+		if (str[i] == '-')
+			neg *= -1;
+		i++;
 	}
-	if (nb == 2)
-	{
-		tab = ft_split(str[1], 32);
-		while (tab[i])
-		{
-			if (ft_check_number(tab[i]) == 0)
-			{
-				free_tab(tab);
-				return (printf("error avec 1 arg"));
-			}
-			i++;
-		}
-	}
-	return(1);
+	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
+		nb = (nb * 10) + (str[i++] - 48);
+	nb *= neg;
+	if ((i == 0 || str[i] || nb > INT_MAX || nb < INT_MIN))
+		ft_errror();
+	return (nb);
 }
+
+

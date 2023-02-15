@@ -6,7 +6,7 @@
 /*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 12:54:10 by rofontai          #+#    #+#             */
-/*   Updated: 2023/02/13 15:39:54 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/02/14 08:45:42 by rofontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,9 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
+
+/* Fonction ajouté */
+
+char	**ft_free_tab(char **tab);
 
 #endif
