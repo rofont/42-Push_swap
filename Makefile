@@ -6,7 +6,7 @@
 #    By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 08:05:42 by rofontai          #+#    #+#              #
-#    Updated: 2023/02/14 15:23:31 by rofontai         ###   ########.fr        #
+#    Updated: 2023/02/16 11:37:53 by rofontai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME		= push_swap
 CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror
 
-SRC			= parsing.c push_swap.c
+SRC			= parsing.c push_swap.c utils.c
 OBJ			= ${SRC:.c=.o}
 DIR_LIBFT	= ./libft
 LIBFT		=libft.a

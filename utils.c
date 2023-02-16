@@ -5,46 +5,43 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/14 16:07:48 by rofontai          #+#    #+#             */
-/*   Updated: 2023/02/15 10:17:37 by rofontai         ###   ########.fr       */
+/*   Created: 2023/02/16 11:14:31 by rofontai          #+#    #+#             */
+/*   Updated: 2023/02/16 16:03:22 by rofontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*lstnew_node(int content)
+t_stack *ft_new_node(int content)
 {
-	t_stack	*new;
+	t_stack *new;
 
 	new = malloc(sizeof(t_stack));
 	if (!new)
-		return (NULL);
-	new->nbr = content;
+		ft_error("Error\nErreur de creation de node");
+	new->nombre = content;
 	new->index = -1;
 	new->next = NULL;
 	return (new);
 }
 
-void	lstadd_back_node(t_stack *lst, t_stack *new)
+void ft_check_double(t_stack *lst, t_stack *new)
 {
-	t_stack	*last;
+	if (lst->nombre == new->nombre)
+		ft_error("Error\nUn argument est en double");
+}
 
-	if (!lst || !new)
-		return ;
-	if (lst == NULL)
+void ft_adback_stack(t_stack *lst, t_stack *new)
+{
+	if (lst ==NULL)
 	{
 		lst = new;
 		return ;
 	}
-	last = search_last_node(lst);
-	last->next = new;
-}
-
-t_stack	*search_last_node(t_stack *lst)
-{
-	if (!lst)
-		return (NULL);
 	while (lst->next != NULL)
+	{
+		ft_check_double(lst, new);
 		lst = lst->next;
-	return (lst);
+	}
+	lst->next = new;
 }

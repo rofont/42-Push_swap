@@ -6,26 +6,24 @@
 /*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 07:46:05 by rofontai          #+#    #+#             */
-/*   Updated: 2023/02/15 10:03:04 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/02/16 16:03:37 by rofontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_errror(void)
+void	ft_error(char *str)
 {
-	ft_putendl_fd("Error", STDERR_FILENO);
-	exit(0);
+	write(STDERR_FILENO, str, ft_strlen(str));
+	exit(EXIT_FAILURE);
 }
 
-int	ft_atol(char *str)
+int	ft_check_and_conv_arg(char *str)
 {
 	long	nb;
 	int		neg;
 	int		i;
 
-	if (!str)
-		ft_errror();
 	neg = 1;
 	i = 0;
 	nb = 0;
@@ -41,8 +39,44 @@ int	ft_atol(char *str)
 		nb = (nb * 10) + (str[i++] - 48);
 	nb *= neg;
 	if ((i == 0 || str[i] || nb > INT_MAX || nb < INT_MIN))
-		ft_errror();
+		ft_error("Error\nMerci de rentrée un argument valide");
 	return (nb);
 }
 
+void	ft_pars(int argc, char **argv)
+{
+	int		i;
+	char	**tab;
+	t_stack *stack_a;
 
+	stack_a = NULL;
+	i = 0;
+	if (argc < 2)
+		ft_error("Error\nIl manque des arguments");
+	if (argc == 2)
+	{
+		tab = ft_split(argv[1], 32);
+		while (tab[i])
+		{
+			printf("%i\n", ft_check_and_conv_arg(tab[i]));
+			ft_adback_stack(stack_a, ft_new_node(ft_check_and_conv_arg(tab[i])));
+			i++;
+		}
+	}
+	if (argc > 2)
+	{
+		i = 1;
+		while (argv[i])
+		{
+			printf("%i\n", ft_check_and_conv_arg(argv[i]));
+			ft_adback_stack(stack_a, ft_new_node(ft_check_and_conv_arg(argv[i])));
+			i++;
+		}
+		printf("Je suis ici\n");
+	}
+	while(stack_a)
+	{
+		printf("la valeur du node est %i, la valeur de l'index est %i\n", stack_a->nombre, stack_a->index);
+		stack_a = stack_a->next;
+	}
+}
