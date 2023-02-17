@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 07:46:05 by rofontai          #+#    #+#             */
-/*   Updated: 2023/02/16 20:33:57 by romain           ###   ########.fr       */
+/*   Updated: 2023/02/17 12:11:20 by rofontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_error(char *str)
+void	f_error(char *str)
 {
 	write(STDERR_FILENO, str, ft_strlen(str));
 	exit(EXIT_FAILURE);
 }
 
-int	ft_check_and_conv_arg(char *str)
+int	f_atoi(char *str)
 {
 	long	nb;
 	int		neg;
@@ -39,11 +39,11 @@ int	ft_check_and_conv_arg(char *str)
 		nb = (nb * 10) + (str[i++] - 48);
 	nb *= neg;
 	if ((i == 0 || str[i] || nb > INT_MAX || nb < INT_MIN))
-		ft_error("Error\nMerci de rentrée un argument valide");
+		f_error("Error\nMerci de rentrée un argument valide");
 	return (nb);
 }
 
-void	ft_pars(int argc, char **argv)
+void	f_pars(int argc, char **argv)
 {
 	int		i;
 	char	**tab;
@@ -52,14 +52,14 @@ void	ft_pars(int argc, char **argv)
 	stack_a = NULL;
 	i = 0;
 	if (argc < 2)
-		ft_error("Error\nIl manque des arguments");
+		f_error("Error\nIl manque des arguments");
 	if (argc == 2)
 	{
 		tab = ft_split(argv[1], 32);
 		while (tab[i])
 		{
-			printf("%i\n", ft_check_and_conv_arg(tab[i]));
-			ft_adback_stack(&stack_a, ft_new_node(ft_check_and_conv_arg(tab[i])));
+			printf("%i\n", f_atoi(tab[i]));
+			f_adback_stack(&stack_a, f_new_node(f_atoi(tab[i])));
 			i++;
 		}
 	}
@@ -68,8 +68,8 @@ void	ft_pars(int argc, char **argv)
 		i = 1;
 		while (argv[i])
 		{
-			printf("%i\n", ft_check_and_conv_arg(argv[i]));
-			ft_adback_stack(&stack_a, ft_new_node(ft_check_and_conv_arg(argv[i])));
+			printf("%i\n", f_atoi(argv[i]));
+			f_adback_stack(&stack_a, f_new_node(f_atoi(argv[i])));
 			i++;
 		}
 	}
