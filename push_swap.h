@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 07:47:19 by rofontai          #+#    #+#             */
-/*   Updated: 2023/02/16 12:45:43 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/02/16 20:36:20 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _PUSH_SWAP_
-# define _PUSH_SWAP_
+#ifndef PUSH_SWAP_
+# define PUSH_SWAP_
 
 # include <stdio.h>
 # include <limits.h>
@@ -27,9 +27,9 @@ typedef struct s_stack
 
 // LINK LIST-------------------------------------------------------------------
 
-t_stack *ft_new_node(int content);
-void ft_check_double(t_stack *lst, t_stack *new);
-void ft_adback_stack(t_stack *lst, t_stack *new);
+t_stack	*ft_new_node(int content);
+t_stack	*ft_check_double(t_stack *lst, t_stack *new);
+void	ft_adback_stack(t_stack **lst, t_stack *new);
 
 // PARSING----------------------------------------------------------------------
 

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+         #
+#    By: romain <romain@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 08:05:42 by rofontai          #+#    #+#              #
-#    Updated: 2023/02/16 11:37:53 by rofontai         ###   ########.fr        #
+#    Updated: 2023/02/16 18:52:49 by romain           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror
 
 SRC			= parsing.c push_swap.c utils.c
-OBJ			= ${SRC:.c=.o}
+OBJ_DIR		= ./obj
+OBJ			= ${SRC:%.c=${OBJ_DIR}/%.o}
 DIR_LIBFT	= ./libft
 LIBFT		=libft.a
 
@@ -33,10 +34,10 @@ Z = $(shell tput -Txterm setaf 5)
 
 #RULES-------------------------------------------------------------------------
 
-%.o: %.c
+${OBJ_DIR}/%.o: %.c
 	@${CC} ${CFLAGS} -c $< -o $@
 
-all: ${NAME}
+all:  creat ${NAME}
 
 ${NAME}: ${DIR_LIBFT}/${LIBFT} $(OBJ) $(SRC)
 	@echo $GPUSH_SWAP DONE$W
@@ -47,9 +48,13 @@ ${DIR_LIBFT}/${LIBFT}:
 	@echo $CLIBFT DONE$W
 	@make -C ${DIR_LIBFT}
 
+creat:
+	@mkdir -p ${OBJ_DIR}
+
 clean:
 	@echo $RCLEAN	DONE$W
 	@rm -f ${OBJ}
+	@rm -rf ${OBJ_DIR}
 	@make clean -C ${DIR_LIBFT}
 
 fclean: clean

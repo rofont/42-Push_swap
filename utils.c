@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 11:14:31 by rofontai          #+#    #+#             */
-/*   Updated: 2023/02/16 16:03:22 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/02/16 20:37:28 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack *ft_new_node(int content)
+t_stack	*ft_new_node(int content)
 {
-	t_stack *new;
+	t_stack	*new;
 
 	new = malloc(sizeof(t_stack));
 	if (!new)
@@ -25,23 +25,26 @@ t_stack *ft_new_node(int content)
 	return (new);
 }
 
-void ft_check_double(t_stack *lst, t_stack *new)
+t_stack	*ft_check_double(t_stack *lst, t_stack *new)
 {
-	if (lst->nombre == new->nombre)
-		ft_error("Error\nUn argument est en double");
-}
-
-void ft_adback_stack(t_stack *lst, t_stack *new)
-{
-	if (lst ==NULL)
-	{
-		lst = new;
-		return ;
-	}
 	while (lst->next != NULL)
 	{
-		ft_check_double(lst, new);
+		if (lst->nombre == new->nombre)
+			ft_error("Error\nUn argument est en double");
 		lst = lst->next;
 	}
-	lst->next = new;
+	return (lst);
+}
+
+void	ft_adback_stack(t_stack **lst, t_stack *new)
+{
+	t_stack	*last;
+
+	if (*lst == NULL)
+	{
+		*lst = new;
+		return ;
+	}
+	last = ft_check_double(*lst, new);
+	last->next = new;
 }

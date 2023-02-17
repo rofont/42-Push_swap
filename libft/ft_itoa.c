@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 18:12:45 by romainfonta       #+#    #+#             */
-/*   Updated: 2023/01/30 08:34:41 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/02/16 20:33:03 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,3 @@ char	*ft_itoa(int n)
 		return (0);
 	return (number(str, l, n_nb));
 }
-
-

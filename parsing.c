@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 07:46:05 by rofontai          #+#    #+#             */
-/*   Updated: 2023/02/16 16:03:37 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/02/16 20:33:57 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ft_pars(int argc, char **argv)
 {
 	int		i;
 	char	**tab;
-	t_stack *stack_a;
+	t_stack	*stack_a;
 
 	stack_a = NULL;
 	i = 0;
@@ -59,7 +59,7 @@ void	ft_pars(int argc, char **argv)
 		while (tab[i])
 		{
 			printf("%i\n", ft_check_and_conv_arg(tab[i]));
-			ft_adback_stack(stack_a, ft_new_node(ft_check_and_conv_arg(tab[i])));
+			ft_adback_stack(&stack_a, ft_new_node(ft_check_and_conv_arg(tab[i])));
 			i++;
 		}
 	}
@@ -69,12 +69,11 @@ void	ft_pars(int argc, char **argv)
 		while (argv[i])
 		{
 			printf("%i\n", ft_check_and_conv_arg(argv[i]));
-			ft_adback_stack(stack_a, ft_new_node(ft_check_and_conv_arg(argv[i])));
+			ft_adback_stack(&stack_a, ft_new_node(ft_check_and_conv_arg(argv[i])));
 			i++;
 		}
-		printf("Je suis ici\n");
 	}
-	while(stack_a)
+	while (stack_a)
 	{
 		printf("la valeur du node est %i, la valeur de l'index est %i\n", stack_a->nombre, stack_a->index);
 		stack_a = stack_a->next;
