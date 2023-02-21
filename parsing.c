@@ -3,19 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 07:46:05 by rofontai          #+#    #+#             */
-/*   Updated: 2023/02/20 21:33:36 by romain           ###   ########.fr       */
+/*   Updated: 2023/02/21 14:48:12 by rofontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	f_error(char *str)
+void	f_error(char *str, char **tab, t_lst **node)
 {
+	if (tab)
+		ft_free_tab(tab);
+	if (*node)
+		f_free_list(node);
 	write(STDERR_FILENO, str, ft_strlen(str));
 	exit(EXIT_FAILURE);
+}
+
+void	f_free_list(t_lst **list)
+{
+	t_lst *temp;
+
+	if(*list == NULL)
+		return ;
+	while ((*list))
+	{
+		temp = (*list)->next;
+		free(*list);
+		(*list) = temp;
+	}
+	*list = NULL;
 }
 
 int	f_number(char *str)
@@ -39,11 +58,11 @@ int	f_number(char *str)
 		nb = (nb * 10) + (str[i++] - 48);
 	nb *= neg;
 	if ((i == 0 || str[i] || nb > INT_MAX || nb < INT_MIN))
-		f_error("Error\nMerci de rentrée un argument valide");
+		f_error("Error\nMerci de rentrée un argument valide", 0, 0);
 	return (nb);
 }
 
-void	f_pars(int argc, char **argv)
+t_stack	*f_pars(int argc, char **argv)
 {
 	int			i;
 	char		**tab;
@@ -52,34 +71,28 @@ void	f_pars(int argc, char **argv)
 	push = f_init();
 	i = 0;
 	if (argc < 2)
-		f_error("Error\nIl manque des arguments");
+		f_error("Error\nIl manque des arguments", 0, 0);
 	if (argc == 2)
 	{
 		tab = ft_split(argv[1], 32);
 		while (tab[i])
 		{
-			printf("%i\n", f_number(tab[i]));
 			f_addback_node(&push->a, f_new_node(f_number(tab[i])));
 			push->size_a++;
 			i++;
-
 		}
+		ft_free_tab(tab);
 	}
 	if (argc > 2)
 	{
 		i = 1;
 		while (argv[i])
 		{
-			printf("%i\n", f_number(argv[i]));
 			f_addback_node(&push->a, f_new_node(f_number(argv[i])));
 			push->size_a++;
 			i++;
 		}
 	}
-	while (push->a)
-	{
-		printf("la valeur du node est %i, la valeur de l'index est %i\n", push->a->nombre, push->a->index);
-		push->a = push->a->next;
-	}
-	printf("Il y %d nombre qui sont rentrés\n", push->size_a);
+	f_check_double(push->a);
+	return (push);
 }

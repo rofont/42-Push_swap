@@ -6,7 +6,7 @@
 /*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 12:54:10 by rofontai          #+#    #+#             */
-/*   Updated: 2023/02/14 08:45:42 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/02/21 15:38:38 by rofontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,6 @@ char	*ft_strdup(const char *s1);
 /* Fonction ajouté */
 
 char	**ft_free_tab(char **tab);
+void	ft_swap(int *a, int *b);
 
 #endif
