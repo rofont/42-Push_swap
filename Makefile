@@ -6,7 +6,7 @@
 #    By: romain <romain@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 08:05:42 by rofontai          #+#    #+#              #
-#    Updated: 2023/02/16 18:52:49 by romain           ###   ########.fr        #
+#    Updated: 2023/02/20 20:13:15 by romain           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 NAME		= push_swap
 
 CC			= gcc
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror -g
 
 SRC			= parsing.c push_swap.c utils.c
 OBJ_DIR		= ./obj
@@ -64,4 +64,7 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re run
+generators:
+	@open https://www.calculatorsoup.com/calculators/statistics/random-number-generator.php
+
+.PHONY: all clean fclean re run generators

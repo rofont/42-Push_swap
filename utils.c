@@ -3,20 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 11:14:31 by rofontai          #+#    #+#             */
-/*   Updated: 2023/02/17 12:19:04 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/02/20 21:33:38 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*f_new_node(int content)
+t_stack	*f_init(void)
 {
-	t_stack	*new;
+	t_stack *new;
 
 	new = malloc(sizeof(t_stack));
+	if (!new)
+		return (NULL);
+	new->a = NULL;
+	new->b = NULL;
+	new->med_a = 0;
+	new->med_b = 0;
+	new->size_a = 0;
+	new->size_b = 0;
+
+	return (new);
+}
+
+t_lst	*f_new_node(int content)
+{
+	t_lst	*new;
+
+	new = malloc(sizeof(t_lst));
 	if (!new)
 		f_error("Error\nErreur de creation de node");
 	new->nombre = content;
@@ -25,31 +42,27 @@ t_stack	*f_new_node(int content)
 	return (new);
 }
 
-t_stack	*f_check_double(t_stack *lst, t_stack *new)
+t_lst	*f_last_node(t_lst *list)
 {
-	if (lst->next == NULL)
-	{
-		if (lst->nombre == new->nombre)
-			f_error("Error\nUn argument est en double");
-	}
-	while (lst->next != NULL)
-	{
-		if (lst->nombre == new->nombre)
-			f_error("Error\nUn argument est en double");
-		lst = lst->next;
-	}
-	return (lst);
+	if (!list)
+		return (NULL);
+	while (list->next != NULL)
+		list = list->next;
+	return (list);
 }
 
-void	f_adback_stack(t_stack **lst, t_stack *new)
+void	f_addback_node(t_lst **list, t_lst *new)
 {
-	t_stack	*last;
+	t_lst	*last;
 
-	if (*lst == NULL)
+	if (!list || !new)
+		return ;
+	if (*list == NULL)
 	{
-		*lst = new;
+		*list = new;
 		return ;
 	}
-	last = f_check_double(*lst, new);
+	last = f_last_node(*list);
 	last->next = new;
 }
+

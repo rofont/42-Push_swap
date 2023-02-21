@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:26:43 by rofontai          #+#    #+#             */
-/*   Updated: 2023/02/17 12:10:20 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/02/19 10:42:11 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,3 +17,4 @@ int	main(int argc, char **argv)
 	f_pars(argc, argv);
 	printf("Ok ca marche");
 }
+

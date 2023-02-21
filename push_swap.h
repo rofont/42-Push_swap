@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 07:47:19 by rofontai          #+#    #+#             */
-/*   Updated: 2023/02/17 12:28:45 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/02/20 21:33:31 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,33 +18,37 @@
 # include "./libft/libft.h"
 
 // STRUCTURE-------------------------------------------------------------------
-typedef struct s_stack
+typedef struct s_lst
 {
 	int				nombre;
 	int				index;
-	struct s_stack	*next;
-}				t_stack;
+	struct s_lst	*next;
+}				t_lst;
 
-typedef	struct s_struct
+typedef	struct s_stack
 {
-	t_stack	*a;
-	t_stack *b;
-	int		size;
-	int		med;
+	t_lst	*a;
+	t_lst	*b;
+	int		size_a;
+	int		size_b;
+	int		med_a;
+	int		med_b;
 
-}				t_struct;
+}				t_stack;
 
 
 // LINK LIST-------------------------------------------------------------------
 
-t_stack	*f_new_node(int content);
-t_stack	*f_check_double(t_stack *lst, t_stack *new);
-void	f_adback_stack(t_stack **lst, t_stack *new);
+t_lst	*f_new_node(int content);
+t_lst	*f_last_node(t_lst *list);
+void	f_addback_node(t_lst **list, t_lst *new);
+t_stack	*f_init(void);
+
 
 // PARSING----------------------------------------------------------------------
 
 void	f_pars(int argc, char **argv);
 void	f_error(char *str);
-int		f_atoi(char *str);
+int		f_number(char *str);
 
 #endif

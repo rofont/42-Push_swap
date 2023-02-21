@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 07:46:05 by rofontai          #+#    #+#             */
-/*   Updated: 2023/02/17 12:11:20 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/02/20 21:33:36 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	f_error(char *str)
 	exit(EXIT_FAILURE);
 }
 
-int	f_atoi(char *str)
+int	f_number(char *str)
 {
 	long	nb;
 	int		neg;
@@ -45,11 +45,11 @@ int	f_atoi(char *str)
 
 void	f_pars(int argc, char **argv)
 {
-	int		i;
-	char	**tab;
-	t_stack	*stack_a;
+	int			i;
+	char		**tab;
+	t_stack		*push;
 
-	stack_a = NULL;
+	push = f_init();
 	i = 0;
 	if (argc < 2)
 		f_error("Error\nIl manque des arguments");
@@ -58,9 +58,11 @@ void	f_pars(int argc, char **argv)
 		tab = ft_split(argv[1], 32);
 		while (tab[i])
 		{
-			printf("%i\n", f_atoi(tab[i]));
-			f_adback_stack(&stack_a, f_new_node(f_atoi(tab[i])));
+			printf("%i\n", f_number(tab[i]));
+			f_addback_node(&push->a, f_new_node(f_number(tab[i])));
+			push->size_a++;
 			i++;
+
 		}
 	}
 	if (argc > 2)
@@ -68,14 +70,16 @@ void	f_pars(int argc, char **argv)
 		i = 1;
 		while (argv[i])
 		{
-			printf("%i\n", f_atoi(argv[i]));
-			f_adback_stack(&stack_a, f_new_node(f_atoi(argv[i])));
+			printf("%i\n", f_number(argv[i]));
+			f_addback_node(&push->a, f_new_node(f_number(argv[i])));
+			push->size_a++;
 			i++;
 		}
 	}
-	while (stack_a)
+	while (push->a)
 	{
-		printf("la valeur du node est %i, la valeur de l'index est %i\n", stack_a->nombre, stack_a->index);
-		stack_a = stack_a->next;
+		printf("la valeur du node est %i, la valeur de l'index est %i\n", push->a->nombre, push->a->index);
+		push->a = push->a->next;
 	}
+	printf("Il y %d nombre qui sont rentrés\n", push->size_a);
 }
