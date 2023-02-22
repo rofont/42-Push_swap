@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 07:47:19 by rofontai          #+#    #+#             */
-/*   Updated: 2023/02/21 15:46:50 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/02/21 19:57:32 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,6 @@ int		f_number(char *str);
 int		f_check_sort(t_lst *list);
 void 	f_sort(t_stack *stack);
 void	f_swap(t_lst *stack);
+void	f_index(t_stack *pile);
 
 #endif
