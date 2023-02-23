@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 07:47:19 by rofontai          #+#    #+#             */
-/*   Updated: 2023/02/22 20:56:07 by romain           ###   ########.fr       */
+/*   Updated: 2023/02/23 11:48:49 by rofontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ t_stack	*f_init(void);
 void	f_check_double(t_lst *list);
 void	f_free_list(t_lst **list);
 t_lst 	*f_search_top(t_lst *pile);
+void	f_addfront_node(t_lst **lst, t_lst *new);
+t_lst	*f_be_last_node(t_lst *list);
 
 // PARSING----------------------------------------------------------------------
 
@@ -58,5 +60,9 @@ int		f_check_sort(t_lst *list);
 void 	f_sort(t_stack *stack);
 void	f_swap(t_lst *stack);
 void	f_index(t_stack *pile);
+void	f_pusha(t_stack *pile);
+void	f_pushb(t_stack *pile);
+void	f_rotatea(t_stack *pile);
+void	f_reversea(t_stack *pile);
 
 #endif

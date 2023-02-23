@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 13:16:52 by rofontai          #+#    #+#             */
-/*   Updated: 2023/02/22 22:02:02 by romain           ###   ########.fr       */
+/*   Updated: 2023/02/23 11:50:24 by rofontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,26 @@ void	f_index(t_stack *pile)
 	while (size != 0)
 	{
 		pile->a = f_search_top(pile->a);
-		pile->a->index = size;
+		pile->a->index = size--;
 		pile->a = temp;
-		size--;
 	}
 }
-
-
-
 
 t_lst	*f_search_top(t_lst *pile)
 {
 	t_lst	*up;
+	t_lst	*temp;
 
 	up = pile;
+	temp = pile;
+	while (pile)
+	{
+		if (pile->index == -1)
+			up = pile;
+		pile = pile->next;
+	}
+	pile = temp;
+
 	while (pile)
 	{
 		if ((up->nombre < pile->nombre) && pile->index == -1)
@@ -56,28 +62,20 @@ t_lst	*f_search_top(t_lst *pile)
 	return (up);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-void	f_sort(t_stack *stack)
+void	f_addfront_node(t_lst **lst, t_lst *new)
 {
-	if (f_check_sort(stack->a) == 1)
-		(EXIT_SUCCESS);
-	else if (stack->size_a >= 2)
-		f_swap(stack->a);
-	// else if (stack->size_a == 3)
-	// else if (stack->size_a == 5)
-	// else if (stack->size_a > 5)
+	if (lst && new)
+	{
+		new->next = *lst;
+		*lst = new;
+	}
+}
+
+t_lst	*f_be_last_node(t_lst *list)
+{
+	if (!list)
+		return (NULL);
+	while (list->next->next != NULL)
+		list = list->next;
+	return (list);
 }
