@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 13:16:52 by rofontai          #+#    #+#             */
-/*   Updated: 2023/02/22 10:20:39 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/02/22 22:02:02 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,34 +26,48 @@ int f_check_sort(t_lst *list)
 void	f_index(t_stack *pile)
 {
 	t_lst	*temp;
-	int		i;
+	int		size;
 
 	temp = pile->a;
-	i = pile->size_a;
-	while (i > 0)
+	size = pile->size_a;
+	while (size != 0)
 	{
-		temp = f_search_top(pile->a);
-		temp->index = i;
-		i--;
+		pile->a = f_search_top(pile->a);
+		pile->a->index = size;
+		pile->a = temp;
+		size--;
 	}
-	pile->a = temp;
 }
 
-t_lst *f_search_top(t_lst *node)
+
+
+
+t_lst	*f_search_top(t_lst *pile)
 {
-	t_lst *temp;
+	t_lst	*up;
 
-	temp = node;
-	while (node && node->index == -1)
+	up = pile;
+	while (pile)
 	{
-		if (temp->nombre < node->nombre)
-		{
-			temp = node;
-		}
-		node = node->next;
+		if ((up->nombre < pile->nombre) && pile->index == -1)
+				up = pile;
+		pile = pile->next;
 	}
-	return (temp);
+	return (up);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

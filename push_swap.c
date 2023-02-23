@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:26:43 by rofontai          #+#    #+#             */
-/*   Updated: 2023/02/22 10:19:10 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/02/22 21:29:20 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int	main(int argc, char **argv)
 	push = f_pars(argc, argv);
 	f_index(push);
 	// f_sort(push);
-	// temp = f_search_top(push->a);
+	// push->a = f_search_top(push);
 	printf("liste a\n");
-	// printf("le plus grand est : %d\n", temp->nombre);
+	// printf("le plus grand est : %d\n", push->a->nombre);
 	printf("la taille de a est  = %d\n", push->size_a);
 	while (push->a)
 	{

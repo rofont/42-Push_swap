@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 07:47:19 by rofontai          #+#    #+#             */
-/*   Updated: 2023/02/22 10:19:16 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/02/22 20:56:07 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	f_addback_node(t_lst **list, t_lst *new);
 t_stack	*f_init(void);
 void	f_check_double(t_lst *list);
 void	f_free_list(t_lst **list);
-t_lst 	*f_search_top(t_lst *node);
+t_lst 	*f_search_top(t_lst *pile);
 
 // PARSING----------------------------------------------------------------------
 
