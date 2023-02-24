@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 07:47:19 by rofontai          #+#    #+#             */
-/*   Updated: 2023/02/23 11:48:49 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/02/23 21:43:57 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,20 @@ typedef	struct s_stack
 
 }				t_stack;
 
+// typedef struct s_mouve
+// {
+// 	char *swap_a;
+// 	char *swap_b;
+// 	char *push_a;
+// 	char *push_b;
+// 	char *rotate_a;
+// 	char *rotate_b;
+// 	char *rotate_ab;
+// 	char *reverse_a;
+// 	char *reverse_b;
+// 	char *reverse_ab;
+// }			t_mouve;
+
 
 // LINK LIST-------------------------------------------------------------------
 
@@ -56,13 +70,24 @@ void	f_error(char *str, char **tab, t_lst **node);
 int		f_number(char *str);
 
 // SORTING----------------------------------------------------------------------
-int		f_check_sort(t_lst *list);
 void 	f_sort(t_stack *stack);
-void	f_swap(t_lst *stack);
+int		f_check_sort(t_lst *list);
 void	f_index(t_stack *pile);
+void	f_swapa(t_stack *pile);
+void	f_swapb(t_stack *pile);
+void	f_swap_ab(t_stack *pile);
 void	f_pusha(t_stack *pile);
 void	f_pushb(t_stack *pile);
 void	f_rotatea(t_stack *pile);
+void	f_rotateb(t_stack *pile);
+void	f_rotate_ab(t_stack *pile);
 void	f_reversea(t_stack *pile);
+void	f_reverseb(t_stack *pile);
+void	f_reverse_ab(t_stack *pile);
+
+// ALGORYTHME-------------------------------------------------------------------
+void	algo_2(t_stack *pile);
+void	algo_3(t_stack *pile);
+
 
 #endif

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+         #
+#    By: romain <romain@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 08:05:42 by rofontai          #+#    #+#              #
-#    Updated: 2023/02/23 08:08:44 by rofontai         ###   ########.fr        #
+#    Updated: 2023/02/23 21:12:25 by romain           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ NAME		= push_swap
 CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror -g
 
-SRC			= parsing.c push_swap.c link_list.c mouve.c utils.c sort.c
+SRC			= parsing.c push_swap.c link_list.c utils.c sort.c push_and_swap.c \
+			rotate.c reverse.c
 OBJ_DIR		= ./obj
 OBJ			= ${SRC:%.c=${OBJ_DIR}/%.o}
 DIR_LIBFT	= ./libft
