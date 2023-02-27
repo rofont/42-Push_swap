@@ -6,7 +6,7 @@
 /*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 07:47:19 by rofontai          #+#    #+#             */
-/*   Updated: 2023/02/23 21:43:57 by romain           ###   ########.fr       */
+/*   Updated: 2023/02/26 21:12:22 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,9 @@ void	f_reverseb(t_stack *pile);
 void	f_reverse_ab(t_stack *pile);
 
 // ALGORYTHME-------------------------------------------------------------------
-void	algo_2(t_stack *pile);
-void	algo_3(t_stack *pile);
+void	f_algo_2(t_stack *pile);
+void	f_algo_3(t_stack *pile);
+void	f_algo_5(t_stack *pile);
 
 
 #endif

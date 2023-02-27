@@ -6,12 +6,14 @@
 /*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 21:09:26 by romain            #+#    #+#             */
-/*   Updated: 2023/02/23 21:25:09 by romain           ###   ########.fr       */
+/*   Updated: 2023/02/25 17:10:27 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*Décale d’une position vers le haut tous les élements de la pile a.
+Le premier élément devient le dernier.*/
 void	f_rotatea(t_stack *pile)
 {
 	t_lst	*temp;
@@ -27,6 +29,8 @@ void	f_rotatea(t_stack *pile)
 	printf("ra\n");
 }
 
+/*Décale d’une position vers le haut tous les élements de la pile b.
+Le premier élément devient le dernier.*/
 void	f_rotateb(t_stack *pile)
 {
 	t_lst	*temp;
@@ -42,6 +46,7 @@ void	f_rotateb(t_stack *pile)
 	printf("rb\n");
 }
 
+/*rra et rrb en même temps.*/
 void	f_rotate_ab(t_stack *pile)
 {
 	f_rotatea(pile);
