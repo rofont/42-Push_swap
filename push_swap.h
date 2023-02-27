@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 07:47:19 by rofontai          #+#    #+#             */
-/*   Updated: 2023/02/26 21:12:22 by romain           ###   ########.fr       */
+/*   Updated: 2023/02/27 10:00:22 by rofontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,6 @@ typedef	struct s_stack
 	int		med_b;
 
 }				t_stack;
-
-// typedef struct s_mouve
-// {
-// 	char *swap_a;
-// 	char *swap_b;
-// 	char *push_a;
-// 	char *push_b;
-// 	char *rotate_a;
-// 	char *rotate_b;
-// 	char *rotate_ab;
-// 	char *reverse_a;
-// 	char *reverse_b;
-// 	char *reverse_ab;
-// }			t_mouve;
-
 
 // LINK LIST-------------------------------------------------------------------
 
@@ -85,10 +70,12 @@ void	f_reversea(t_stack *pile);
 void	f_reverseb(t_stack *pile);
 void	f_reverse_ab(t_stack *pile);
 
+
 // ALGORYTHME-------------------------------------------------------------------
 void	f_algo_2(t_stack *pile);
 void	f_algo_3(t_stack *pile);
 void	f_algo_5(t_stack *pile);
+void	f_algo_big(t_stack *pile);
 
 
 #endif

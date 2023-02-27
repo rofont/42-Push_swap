@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_and_swap.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 21:06:15 by romain            #+#    #+#             */
-/*   Updated: 2023/02/25 16:47:51 by romain           ###   ########.fr       */
+/*   Updated: 2023/02/27 10:17:50 by rofontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	f_swapa(t_stack *pile)
 Ne fait rien s’il n’y en a qu’un ou aucun.*/
 void	f_swapb(t_stack *pile)
 {
-	if (pile->b == NULL)
+	if (pile->b == NULL || pile->size_b == 1)
 		return ;
 	ft_swap(&pile->b->nombre, &pile->b->next->nombre);
 	ft_swap(&pile->b->index, &pile->b->next->index);
