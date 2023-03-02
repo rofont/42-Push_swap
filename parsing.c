@@ -6,7 +6,7 @@
 /*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 09:28:35 by rofontai          #+#    #+#             */
-/*   Updated: 2023/03/02 08:41:48 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/03/02 10:38:46 by rofontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,19 @@ t_stack	*f_pars(int argc, char **argv)
 	f_check_double(pile, pile->a);
 
 	return (pile);
+}
+
+void	f_index(t_stack *pile)
+{
+	t_lst	*temp;
+	int		size;
+
+	temp = pile->a;
+	size = pile->size_a;
+	while (size != 0)
+	{
+		pile->a = f_search_top(pile->a);
+		pile->a->index = size--;
+		pile->a = temp;
+	}
 }
