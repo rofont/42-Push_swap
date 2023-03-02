@@ -6,7 +6,7 @@
 /*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 07:47:19 by rofontai          #+#    #+#             */
-/*   Updated: 2023/03/01 10:25:08 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/03/02 08:40:52 by rofontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_stack	*f_init();
 // PARSING---------------------------------------------------------------------
 int		f_number(char *str, t_stack *pile, char **tab);
 t_stack	*f_pars(int argc, char **argv);
-void	f_check_double(t_stack *pile);
+void	f_check_double(t_stack *pile, t_lst *node);
 
 // LINK_LIST-------------------------------------------------------------------
 t_lst	*f_new_node(int content, t_stack *pile);

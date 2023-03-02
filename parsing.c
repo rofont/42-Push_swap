@@ -6,7 +6,7 @@
 /*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 09:28:35 by rofontai          #+#    #+#             */
-/*   Updated: 2023/03/01 10:31:44 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/03/02 08:41:48 by rofontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,20 +37,20 @@ int	f_number(char *str, t_stack *pile, char **tab)
 	return (nb);
 }
 
-void	f_check_double(t_stack *pile)
+void	f_check_double(t_stack *pile, t_lst *node)
 {
 	t_lst	*temp;
 
-	while (pile->a->next != NULL)
+	while (node->next != NULL)
 	{
-		temp = pile->a->next;
+		temp = node->next;
 		while (temp)
 		{
-			if (temp->nombre == pile->a->nombre)
+			if (temp->nombre == node->nombre)
 				f_error("Error\nIl y a un nombre en double", &pile, 0);
 			temp = temp->next;
 		}
-		pile->a = pile->a->next;
+		node = node->next;
 	}
 }
 
@@ -83,7 +83,7 @@ t_stack	*f_pars(int argc, char **argv)
 			pile->size_a++;
 		}
 	}
-	f_check_double(pile);
+	f_check_double(pile, pile->a);
 
 	return (pile);
 }
