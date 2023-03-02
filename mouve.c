@@ -6,7 +6,7 @@
 /*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 10:51:20 by rofontai          #+#    #+#             */
-/*   Updated: 2023/03/02 11:30:18 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/03/02 15:05:24 by rofontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,28 @@ void	f_push_a(t_stack *pile)
 	pile->size_a++;
 	pile->size_b--;
 	printf("pa\n");
+}
+
+void	f_rotate_b(t_stack *pile)
+{
+	t_lst	*temp;
+	t_lst	*last;
+	t_lst	*head;
+
+	head = pile->b->next;
+	temp = pile->b;
+	last = f_last_node(pile->b);
+	last->next = temp;
+	temp->next = NULL;
+	pile->b = head;
+	printf("rb\n");
+}
+
+void	f_swap_b(t_stack *pile)
+{
+	if (pile->b == NULL || pile->size_b == 1)
+		return ;
+	ft_swap(&pile->b->nombre, &pile->b->next->nombre);
+	ft_swap(&pile->b->index, &pile->b->next->index);
+	printf("sb\n");
 }

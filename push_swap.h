@@ -6,7 +6,7 @@
 /*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 07:47:19 by rofontai          #+#    #+#             */
-/*   Updated: 2023/03/02 11:48:27 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/03/02 15:05:35 by rofontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,12 @@ void	f_swap_a(t_stack *pile);
 void	f_rotate_a(t_stack *pile);
 void	f_push_b(t_stack *pile);
 void	f_push_a(t_stack *pile);
+void	f_rotate_b(t_stack *pile);
+void	f_swap_b(t_stack *pile);
 
 //ALGO_BIG---------------------------------------------------------------------
 
-void	algo_big(t_stack * pile);
+void	f_algo_big(t_stack * pile);
 
 
 #endif
