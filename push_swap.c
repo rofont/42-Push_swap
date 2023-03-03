@@ -6,7 +6,7 @@
 /*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 09:14:07 by rofontai          #+#    #+#             */
-/*   Updated: 2023/03/02 14:56:04 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/03/03 11:51:43 by rofontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ int	main (int argc, char **argv)
 	push = f_pars(argc, argv);
 	f_index(push);
 	f_sort(push);
-	printf("%d\n", push->size_a);
+	// printf("%d\n", push->size_a);
 	// printf("%d\n", push->a->index);
 	// printf("%d\n", push->a->next->index);
 	f_free_list (&push->a);
-	f_free_list(&push->b);
-	f_free_stack(&push);
+	f_free_list (&push->b);
+	f_free_stack (&push);
 	return (0);
 }

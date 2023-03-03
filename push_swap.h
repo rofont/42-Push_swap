@@ -6,7 +6,7 @@
 /*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 07:47:19 by rofontai          #+#    #+#             */
-/*   Updated: 2023/03/02 15:05:35 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/03/03 12:51:33 by rofontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ t_lst	*f_new_node(int content, t_stack *pile);
 t_lst	*f_last_node(t_lst *list);
 void	f_addback_node(t_lst **list, t_lst *new);
 t_lst	*f_search_top(t_lst *pile);
+t_lst	*f_be_last_node(t_lst *list);
 
 //SORT-------------------------------------------------------------------------
 
@@ -77,6 +78,7 @@ void	f_push_b(t_stack *pile);
 void	f_push_a(t_stack *pile);
 void	f_rotate_b(t_stack *pile);
 void	f_swap_b(t_stack *pile);
+void	f_reverse_a(t_stack *pile);
 
 //ALGO_BIG---------------------------------------------------------------------
 

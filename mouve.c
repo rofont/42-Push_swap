@@ -6,7 +6,7 @@
 /*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 10:51:20 by rofontai          #+#    #+#             */
-/*   Updated: 2023/03/02 15:05:24 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/03/03 12:50:35 by rofontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,4 +98,21 @@ void	f_swap_b(t_stack *pile)
 	ft_swap(&pile->b->nombre, &pile->b->next->nombre);
 	ft_swap(&pile->b->index, &pile->b->next->index);
 	printf("sb\n");
+}
+
+/*Décale d’une position vers le bas tous les élements de
+la pile a. Le dernier élément devient le premier.*/
+void	f_reverse_a(t_stack *pile)
+{
+	t_lst	*temp;
+	t_lst	*last;
+	t_lst	*be_last;
+
+	temp = pile->a;
+	be_last = f_be_last_node(pile->a);
+	last = f_last_node(pile->a);
+	last->next = temp;
+	be_last->next = NULL;
+	pile->a = last;
+	printf("rra\n");
 }

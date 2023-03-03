@@ -6,7 +6,7 @@
 /*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 09:32:52 by rofontai          #+#    #+#             */
-/*   Updated: 2023/03/02 11:02:50 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/03/03 12:51:24 by rofontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,13 @@ t_lst	*f_search_top(t_lst *pile)
 		pile = pile->next;
 	}
 	return (up);
+}
+
+t_lst	*f_be_last_node(t_lst *list)
+{
+	if (!list)
+		return (NULL);
+	while (list->next->next != NULL)
+		list = list->next;
+	return (list);
 }
