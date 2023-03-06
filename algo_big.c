@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_big.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 11:47:19 by rofontai          #+#    #+#             */
-/*   Updated: 2023/03/05 08:46:37 by romain           ###   ########.fr       */
+/*   Updated: 2023/03/06 14:28:10 by rofontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,23 @@ void	f_algo_big(t_stack * pile)
 		div = div/2;
 	}
 	f_algo_3(pile);
-	while (pile->b->index != (f_last_node(pile->a)->index - 1))
+
+	while (pile->size_a != i && pile->b != 0)
 	{
-
+		while (pile->b->index > pile->a->index)
+		{
+			f_rotate_a(pile);
+		}
+		while (pile->b->index < f_last_node(pile->a)->index)
+		{
+			if (pile->a->index < f_last_node(pile->a)->index)
+				break ;
+			f_reverse_a(pile);
+		}
+		f_push_a(pile);
 	}
-	// tant que b n'est pas egale a l'index de last a-1 ajouter last
-			//chercher index a-1 dans index b
-
+	while (f_check_sort(pile->a) == 0)
+	{
+		f_reverse_a(pile);
+	}
 }

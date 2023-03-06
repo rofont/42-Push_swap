@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouve.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 10:51:20 by rofontai          #+#    #+#             */
-/*   Updated: 2023/03/03 16:36:24 by romain           ###   ########.fr       */
+/*   Updated: 2023/03/06 13:07:14 by rofontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ void	f_push_a(t_stack *pile)
 	printf("pa\n");
 }
 
+/*Décale d’une position vers le haut tous les élements de la pile b.
+Le premier élément devient le dernier.*/
 void	f_rotate_b(t_stack *pile)
 {
 	t_lst	*temp;
