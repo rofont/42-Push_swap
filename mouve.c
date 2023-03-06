@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouve.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 10:51:20 by rofontai          #+#    #+#             */
-/*   Updated: 2023/03/03 12:50:35 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/03/03 16:36:24 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,4 +115,23 @@ void	f_reverse_a(t_stack *pile)
 	be_last->next = NULL;
 	pile->a = last;
 	printf("rra\n");
+}
+
+/*Décale d’une position vers le bas tous les élements de
+la pile b. Le dernier élément devient le premier.*/
+void	f_reverse_b(t_stack *pile)
+{
+	t_lst	*temp;
+	t_lst	*last;
+	t_lst	*be_last;
+
+	if (pile->b == NULL)
+		return ;
+	temp = pile->b;
+	be_last = f_be_last_node(pile->b);
+	last = f_last_node(pile->b);
+	last->next = temp;
+	be_last->next = NULL;
+	pile->b = last;
+	printf("rrb\n");
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 09:14:07 by rofontai          #+#    #+#             */
-/*   Updated: 2023/03/03 13:30:31 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/03/03 16:26:52 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ int	main (int argc, char **argv)
 {
 	// (void)argc;
 	// (void)argv;
-	int i;
+	// int i;
 	t_stack *push;
 	push = f_pars(argc, argv);
 	f_index(push);
-	i = push->size_a;
+	// i = push->size_a;
 	f_sort(push);
 	// while (push->a)
 	// {

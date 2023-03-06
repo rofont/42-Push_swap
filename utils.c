@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 09:17:34 by rofontai          #+#    #+#             */
-/*   Updated: 2023/03/02 11:32:46 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/03/03 21:00:12 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,19 @@ void	f_addfront_node(t_lst **lst, t_lst *new)
 		new->next = *lst;
 		*lst = new;
 	}
+}
+
+int	f_nombre_mouv(t_lst *list)
+{
+	int		i;
+	t_lst	*post;
+
+	i = 0;
+	post = f_search_top_index(list);
+	while (list != post)
+	{
+		i ++;
+		list = list->next;
+	}
+	return (i);
 }

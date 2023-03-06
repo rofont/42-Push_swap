@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 07:47:19 by rofontai          #+#    #+#             */
-/*   Updated: 2023/03/03 12:51:33 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/03/03 20:44:49 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	f_error(char *str, t_stack **pile, char **tab);
 t_stack	*f_init();
 t_lst	*f_search_top_index(t_lst *pile);
 void	f_addfront_node(t_lst **lst, t_lst *new);
+int		f_nombre_mouv(t_lst *list);
 
 // PARSING---------------------------------------------------------------------
 
@@ -79,6 +80,7 @@ void	f_push_a(t_stack *pile);
 void	f_rotate_b(t_stack *pile);
 void	f_swap_b(t_stack *pile);
 void	f_reverse_a(t_stack *pile);
+void	f_reverse_b(t_stack *pile);
 
 //ALGO_BIG---------------------------------------------------------------------
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_big.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 11:47:19 by rofontai          #+#    #+#             */
-/*   Updated: 2023/03/03 13:52:55 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/03/05 08:46:37 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,11 @@ void	f_algo_big(t_stack * pile)
 		div = div/2;
 	}
 	f_algo_3(pile);
+	while (pile->b->index != (f_last_node(pile->a)->index - 1))
+	{
+
+	}
+	// tant que b n'est pas egale a l'index de last a-1 ajouter last
+			//chercher index a-1 dans index b
+
 }
