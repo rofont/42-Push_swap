@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_big.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: romain <romain@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 11:47:19 by rofontai          #+#    #+#             */
-/*   Updated: 2023/03/06 14:28:10 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/03/06 21:40:42 by romain           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	f_algo_big(t_stack * pile)
 
 	i = pile->size_a;
 	pile->med_a = pile->size_a / 2;
-	div = i / 2;
+	div = i / 4;
 	while (pile->size_a > 3 && div > 0)
 	{
 		while(pile->size_a != div*2 && pile->size_a > 3)
@@ -27,7 +27,8 @@ void	f_algo_big(t_stack * pile)
 			if ((pile->a->index >= div) && (pile->a->index < pile->med_a))
 			{
 				f_push_b(pile);
-				f_rotate_b(pile);
+				if (pile->size_b > 1)
+					f_rotate_b(pile);
 			}
 			else if ((pile->a->index >= pile->med_a) && (pile->a->index <= i - div))
 			{
