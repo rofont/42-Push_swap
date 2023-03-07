@@ -6,7 +6,7 @@
 #    By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/24 16:49:17 by rofontai          #+#    #+#              #
-#    Updated: 2023/02/21 15:20:30 by rofontai         ###   ########.fr        #
+#    Updated: 2023/03/07 09:26:44 by rofontai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,4 +48,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re creat

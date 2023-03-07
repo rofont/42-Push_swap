@@ -6,7 +6,7 @@
 /*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 09:02:41 by rofontai          #+#    #+#             */
-/*   Updated: 2023/03/01 10:20:39 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/03/07 13:04:45 by rofontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	f_free_list(t_lst **list)
 {
-	t_lst *temp;
+	t_lst	*temp;
 
-	if(!*list || !list)
+	if (!*list || !list)
 		return ;
 	while (*list)
 	{
@@ -29,7 +29,7 @@ void	f_free_list(t_lst **list)
 
 void	f_free_stack(t_stack **pile)
 {
-	if(!*pile || !pile)
+	if (!*pile || !pile)
 		return ;
 	free(*pile);
 	pile = NULL;
@@ -41,7 +41,7 @@ void	f_error(char *str, t_stack **pile, char **tab)
 		f_free_list(&(*pile)->a);
 	if ((*pile)->b)
 		f_free_list(&(*pile)->b);
-	if (tab)
+	if (tab && tab != 0)
 		ft_free_tab(tab);
 	if (pile)
 		f_free_stack(pile);

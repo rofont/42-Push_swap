@@ -6,15 +6,15 @@
 /*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 09:28:28 by rofontai          #+#    #+#             */
-/*   Updated: 2023/03/06 11:19:34 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/03/07 10:19:39 by rofontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int f_check_sort(t_lst *list)
+int	f_check_sort(t_lst *list)
 {
-	while(list->next != NULL)
+	while (list->next != NULL)
 	{
 		if (list->next->nombre < list->nombre)
 			return (0);
@@ -31,12 +31,9 @@ void	f_sort(t_stack *pile)
 		f_swap_a(pile);
 	else if (pile->size_a == 3)
 		f_algo_3(pile);
-	else if (pile->size_a <= 5)
-		f_algo_5(pile);
-	else if (pile->size_a > 5)
+	else if (pile->size_a > 3)
 		f_algo_big(pile);
 }
-
 
 void	f_algo_3(t_stack *pile)
 {
@@ -47,17 +44,4 @@ void	f_algo_3(t_stack *pile)
 		else
 			f_swap_a(pile);
 	}
-}
-
-void	f_algo_5(t_stack *pile)
-{
-	while (pile->a->index != 1)
-		f_rotate_a(pile);
-	f_push_b(pile);
-	while (pile->a->index != 2)
-		f_rotate_a(pile);
-	f_push_b(pile);
-	f_algo_3(pile);
-	f_push_a(pile);
-	f_push_a(pile);
 }

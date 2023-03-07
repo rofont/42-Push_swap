@@ -6,7 +6,7 @@
 /*   By: rofontai <rofontai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 09:32:52 by rofontai          #+#    #+#             */
-/*   Updated: 2023/03/03 12:51:24 by rofontai         ###   ########.fr       */
+/*   Updated: 2023/03/07 08:44:12 by rofontai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	f_addback_node(t_lst **list, t_lst *new)
 	if (*list == NULL)
 	{
 		*list = new;
-
 		return ;
 	}
 	last = f_last_node(*list);
@@ -64,7 +63,6 @@ t_lst	*f_search_top(t_lst *pile)
 		pile = pile->next;
 	}
 	pile = temp;
-
 	while (pile)
 	{
 		if ((up->nombre < pile->nombre) && pile->index == -1)
